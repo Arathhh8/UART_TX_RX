@@ -1,3 +1,4 @@
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_unsigned.ALL;
@@ -122,11 +123,7 @@ port map(clock_in=>clk, clock_out=>s_baudclock);
 				if count_byte_tx<4 then
 					tx<='0';
 					if count_byte_tx=0 then
-						--data_tx <= data_rx;
-						data_tx(31 downto 24) <= data_rx(7 downto 0);
-						data_tx(23 downto 16) <= data_rx(15 downto 8);
-						data_tx(15 downto 8) <= data_rx(23 downto 16);
-						data_tx(7 downto 0) <= data_rx(31 downto 24);
+						data_tx <= data_rx;
 					end if;
 					ps_tx <= b0;
 				else
